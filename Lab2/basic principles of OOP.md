@@ -1,6 +1,6 @@
 ## 1. Abstract
 
-### - To make the class that has common properties and methods from some classes.
+### - To make the class that has common properties and methods from some classes. It can be implemented by abastract class and interface.
 
 ## 2. Inheritance
 
