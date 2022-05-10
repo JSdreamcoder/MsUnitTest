@@ -28,13 +28,13 @@ namespace Dalbanktest
             allAccount = new List<Account> { mockAccount1 , mockAccount2,mockAccount3 };
 
             // testing double
-            mockRepo.Setup(repo => repo.GetAccounts()).Returns(allAccount);
+            mockRepo.Setup(repo => repo.GetList(r=>true)).Returns(allAccount);
 
             //replace Delete
-            mockRepo.Setup(repo=> repo.DeleteAccount(It.Is<Account>(a=>a.CustomerId ==1))).Callback(()=>allAccount.Remove(mockAccount1));
+            mockRepo.Setup(repo=> repo.Delete(It.Is<Account>(a=>a.CustomerId ==1))).Callback(()=>allAccount.Remove(mockAccount1));
 
 
-            mockRepo.Setup(repo => repo.GetAccountById(It.Is<int>(i => i == 1))).Returns(mockAccount1);
+            mockRepo.Setup(repo => repo.Get(It.Is<int>(i => i == 1))).Returns(mockAccount1);
             mockRepo.Setup(repo => repo.GetAccountById(It.Is<int>(i => i == 2))).Returns(mockAccount2);
             mockRepo.Setup(repo => repo.GetAccountById(It.Is<int>(i => i == 3))).Returns(mockAccount3);
 
@@ -114,7 +114,6 @@ namespace Dalbanktest
             Assert.ThrowsException<ArgumentException>(() =>
               abl.Deposit(1, testDepositeMoney)
             );
-
         }
     }
 }
