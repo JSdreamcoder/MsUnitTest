@@ -28,9 +28,9 @@ namespace VehicleTest
         {
             //Arrange
             var expectedNumberofSlot = capacity;
-            int Slotavailable = testTracker.VehicleList.Where(v => v.Value != null).Count();
+            int Slotavailable = testTracker.VehicleList.Count();
             //Assert
-            Assert.AreEqual(expectedNumberofSlot,testTracker.VehicleList.Count);
+            Assert.AreEqual(expectedNumberofSlot, Slotavailable);
         }
         [TestMethod]
         public void LessThan1CapacityinGenerate()

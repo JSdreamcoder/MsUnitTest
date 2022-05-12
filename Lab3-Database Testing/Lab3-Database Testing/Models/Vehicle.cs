@@ -6,6 +6,9 @@
 
         public bool Parked { get; set; }
 
+        public int PassId { get; set; }
+        public Pass Pass { get; set; }
+
         public ICollection<Reservation> Reservations { get; set; }
 
         public Vehicle()
